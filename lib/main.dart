@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:like_button/like_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -371,7 +372,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      Card(),
                     ],
                   ),
                   Container(
@@ -530,10 +530,132 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                     ,
                   ),
-
-
-                  Container(),
+                  Column(
+                    children: [
+                      hotelList(
+                        'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg',
+                        "소노캄 고양",
+                      ),
+                      hotelList(
+                        'https://www.p-city.com/mobilePub/static/images/hotelParadise/img_main_visual.jpg',
+                        "비발디파크 - 소노벨",
+                      ),
+                      hotelList(
+                        'https://cf.bstatic.com/xdata/images/hotel/max1280x900/269066650.jpg?k=15ca468438d1482b1b3ac7084078215b97a06829291c2bdeacf73653e3e2ea10&o=&hp=1',
+                        "히든 클리프 호텔 & 네이처",
+                      ),
+                    ],
+                  ),
                 ],
               );
+  }
+
+  Stack hotelList(String hotelImage, String hotelName) {
+    double width = hotelName.length.toDouble()*10 + 50;
+    return Stack(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(bottom: 10, left: 25, right: 25),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              hotelImage,
+                              height: 175,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left : 25.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "한정특가",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                width: 60,
+                                height: 25,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.pink[200],
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8.0),
+                                    bottomRight: Radius.circular(8.0),
+                                  ),
+                                ),
+                                margin: const EdgeInsets.only(right: 5,),
+                              ),
+                              Container(
+                                child: Text(
+                                  "강력추천",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                width: 60,
+                                height: 25,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.lightGreen,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8.0),
+                                    bottomRight: Radius.circular(8.0),
+                                  ),
+                                ),
+                                margin: const EdgeInsets.only(right: 5,),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 20,
+                          child: LikeButton(
+                            size: 50,
+                            circleColor:
+                            CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                            bubblesColor: BubblesColor(
+                              dotPrimaryColor: Color(0xff33b5e5),
+                              dotSecondaryColor: Color(0xff0099cc),
+                            ),
+                            likeBuilder: (bool isLiked) {
+                              return Icon(
+                                Icons.thumb_up_alt_outlined,
+                                color: isLiked ? Colors.yellowAccent : Colors.white,
+                                size: 30,
+                              );
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          left: 25,
+                          child: Container(
+                            width: width,
+                            height: 30,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.7),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(8.0),
+                                bottomLeft: Radius.circular(8.0),
+                              ),
+                            ),
+                            child: Text(
+                              hotelName,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
   }
 }
