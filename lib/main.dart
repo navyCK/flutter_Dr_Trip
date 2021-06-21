@@ -30,57 +30,61 @@ class BottomBar extends StatelessWidget {
       child: Container(
         height: 60,
         padding: EdgeInsets.only(bottom: 5, top: 5),
-        child: TabBar(
-          indicatorSize: TabBarIndicatorSize.label,
-          // indicatorColor: colorThemeRed(),
-          indicatorWeight: 4,
-          labelColor: Colors.indigo,
-          unselectedLabelColor: Colors.black38,
-          labelStyle: TextStyle(
-            fontSize: 8,
-            // fontFamilyFallback: fontFamilyName('Yanolja')
-          ),
-
-          tabs: [
-            Tab(
-              icon: Icon(
-                Icons.home,
-                size: 20,
-              ),
-              text: '홈',
-            ),
-            Tab(
-              icon: Icon(
-                  Icons.search,
-                  size: 20
-              ),
-              text: '검색',
-            ),
-            Tab(
-              icon: Icon(
-                Icons.bookmark_border,
-                size: 20,
-              ),
-              text: '가이드',
-            ),
-            Tab(
-              icon: Icon(
-                Icons.airplanemode_active,
-                size: 20,
-              ),
-              text: '추천트립',
-            ),
-            Tab(
-              icon: Icon(
-                Icons.account_circle_outlined,
-                size: 20,
-              ),
-              text: '마이페이지',
-            ),
-          ],
-        ),
+        child: buildTabBar(),
       ),
     );
+  }
+
+  TabBar buildTabBar() {
+    return TabBar(
+        indicatorSize: TabBarIndicatorSize.label,
+        // indicatorColor: colorThemeRed(),
+        indicatorWeight: 4,
+        labelColor: Colors.indigo,
+        unselectedLabelColor: Colors.black38,
+        labelStyle: TextStyle(
+          fontSize: 8,
+          // fontFamilyFallback: fontFamilyName('Yanolja')
+        ),
+
+        tabs: [
+          Tab(
+            icon: Icon(
+              Icons.home,
+              size: 20,
+            ),
+            text: '홈',
+          ),
+          Tab(
+            icon: Icon(
+                Icons.search,
+                size: 20
+            ),
+            text: '검색',
+          ),
+          Tab(
+            icon: Icon(
+              Icons.bookmark_border,
+              size: 20,
+            ),
+            text: '가이드',
+          ),
+          Tab(
+            icon: Icon(
+              Icons.airplanemode_active,
+              size: 20,
+            ),
+            text: '추천트립',
+          ),
+          Tab(
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 20,
+            ),
+            text: '마이페이지',
+          ),
+        ],
+      );
   }
 }
 
@@ -113,9 +117,6 @@ class _MyHomePageState extends State<MyHomePage> {
         home: DefaultTabController(
           length: 5,
           child: Scaffold(
-            // appBar: AppBar(
-            //   title: Text('Dr.Trip'),
-            // ),
             body: TabBarView(
               children: [
                 SingleChildScrollView(
@@ -652,6 +653,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               hotelName,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
