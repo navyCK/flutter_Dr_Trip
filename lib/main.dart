@@ -122,7 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SingleChildScrollView(
                   child: page1(),
                 ),
-                Text('2'),
+                page2(),
+                
                 Text('3'),
                 Text('4'),
                 Text('5'),
@@ -132,6 +133,64 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         )
     );
+  }
+
+  Column page2() {
+    return Column(
+                children: [
+                  SizedBox(height: 50),
+                  Text('숙박 조건을 선택해주세요!'),
+                  SizedBox(height: 20),
+                  cardHotel(),
+                  SizedBox(height: 40),
+                  Column(
+                    children: [
+                      Container(
+                        width: 300,
+                        child: setSearchRaisedButton('도시/숙소로 검색', Icons.map_outlined),
+                      ),
+                      Container(
+                        width: 300,
+                        child: setSearchRaisedButton('2021.06.23(수) - 2021.06.24(목)', Icons.calendar_today),
+                      ),
+                      Container(
+                        width: 300,
+                        child: setSearchRaisedButton('성인 2명', Icons.account_circle),
+                      ),
+                      SizedBox(height: 40),
+                      Container(
+                        width: 300,
+                        height: 50,
+                        child:  RaisedButton.icon(
+                          onPressed: (){ print('Button Clicked.'); },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                          label: Text('검색하기',
+                            style: TextStyle(color: Colors.white),),
+                          icon: Icon(Icons.search, color:Colors.white,),
+                          textColor: Colors.white,
+                          splashColor: Colors.red,
+                          color: Colors.lightBlue,),
+                      ),
+
+                    ],
+                  ),
+                ],
+              );
+  }
+
+  RaisedButton setSearchRaisedButton(String text, IconData iconData) {
+    return RaisedButton.icon(
+                        onPressed: (){ print('Button Clicked.'); },
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                        label: Text(text,
+                          style: TextStyle(color: Colors.white),),
+                        icon: Icon(iconData, color:Colors.white,),
+                        textColor: Colors.white,
+                        splashColor: Colors.indigo,
+                        color: Colors.grey,
+                      );
   }
 
   Column page1() {
@@ -172,85 +231,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
 
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    elevation: 4.0,
-                    margin: const EdgeInsets.only(left: 15.0, right: 15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Icon(
-                                  Icons.hotel,
-                                  size: 40,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "국내호텔"
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Icon(
-                                  Icons.airplanemode_active,
-                                  size: 40,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "해외호텔"
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Icon(
-                                  Icons.golf_course,
-                                  size: 40,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "국내골프"
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  cardHotel(),
+
                   Container(
                     margin: const EdgeInsets.only(top : 30.0),
                     child: Text(
@@ -549,6 +531,88 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               );
+  }
+
+  Card cardHotel() {
+    return Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                  elevation: 4.0,
+                  margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              child: Icon(
+                                Icons.hotel,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                    "국내호텔"
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              child: Icon(
+                                Icons.airplanemode_active,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                    "해외호텔"
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              child: Icon(
+                                Icons.golf_course,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                    "국내골프"
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
   }
 
   Stack hotelList(String hotelImage, String hotelName) {
