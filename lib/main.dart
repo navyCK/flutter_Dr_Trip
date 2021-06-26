@@ -139,7 +139,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
                 children: [
                   SizedBox(height: 50),
-                  Text('숙박 조건을 선택해주세요!'),
+                  Text(
+                      '숙박 조건을 선택해주세요!',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(height: 20),
                   cardHotel(),
                   SizedBox(height: 40),
