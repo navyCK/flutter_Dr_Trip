@@ -124,7 +124,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 page2(),
                 
-                Text('3'),
+                Column(
+                  children: [
+                    SizedBox(height: 50),
+                    Text(
+                      '닥터트립 활용법 필독!',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                      height: 150,
+                      child: colorCard("경매의 기술", "최저가보다 싸게!", Icons.thumb_up_alt_outlined, Colors.deepPurpleAccent, Colors.deepPurple, Colors.white),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                      height: 150,
+                      child: colorCard("크레딧의 정석", "가입만 해도 1만원!", Icons.attach_money, Colors.lightGreenAccent, Colors.green, Colors.black),
+                    ),
+
+
+
+                  ],
+                ),
+
+
+
                 Text('4'),
                 Text('5'),
               ],
@@ -253,114 +282,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Card(
-                        color: Colors.deepPurpleAccent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        elevation: 4.0,
-                        margin: const EdgeInsets.only(left: 15.0, right: 5.0, top: 15.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 150,
-                              padding: EdgeInsets.only(top : 16.0, left: 16.0),
-                              child: Text(
-                                "경매의 기술",
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 150,
-                              padding: EdgeInsets.only(top : 4.0, left: 16.0),
-                              child: Text(
-                                "최저가보다 싸게!",
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.deepPurple,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.thumb_up_alt_outlined,
-                                    size: 30,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Card(
-                        color: Colors.lightGreenAccent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        elevation: 4.0,
-                        margin: const EdgeInsets.only(left: 5.0, right: 15.0, top: 15.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 150,
-                              padding: EdgeInsets.only(top : 16.0, left: 16.0),
-                              child: Text(
-                                "크레딧의 정석",
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 150,
-                              padding: EdgeInsets.only(top : 4.0, left: 16.0),
-                              child: Text(
-                                "가입만 해도 1만원!",
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.attach_money,
-                                    size: 30,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      colorCard("경매의 기술", "최저가보다 싸게!", Icons.thumb_up_alt_outlined, Colors.deepPurpleAccent, Colors.deepPurple, Colors.white),
+                      colorCard("크레딧의 정석", "가입만 해도 1만원!", Icons.attach_money, Colors.lightGreenAccent, Colors.green, Colors.black),
                     ],
                   ),
                   Container(
@@ -537,6 +460,63 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               );
+  }
+
+  Card colorCard(String text1, String text2, IconData iconData, Color colors1, Color colors2, Color textColor) {
+    return Card(
+                      color: colors1,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      elevation: 4.0,
+                      margin: const EdgeInsets.only(left: 5.0, right: 5.0, top: 15.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 150,
+                            padding: EdgeInsets.only(top : 16.0, left: 16.0),
+                            child: Text(
+                              text1,
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: textColor,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 150,
+                            padding: EdgeInsets.only(top : 4.0, left: 16.0),
+                            child: Text(
+                              text2,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: textColor,
+                              ),
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              margin: const EdgeInsets.only(top: 5.0),
+                              decoration: BoxDecoration(
+                                color: colors2,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  iconData,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
   }
 
   Card cardHotel() {
