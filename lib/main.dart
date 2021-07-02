@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:like_button/like_button.dart';
 
@@ -122,35 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SingleChildScrollView(
                   child: page1(),
                 ),
+
                 page2(),
-                
-                Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Text(
-                      '닥터트립 활용법 필독!',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 150,
-                      child: colorCard("경매의 기술", "최저가보다 싸게!", Icons.thumb_up_alt_outlined, Colors.deepPurpleAccent, Colors.deepPurple, Colors.white),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 300,
-                      height: 150,
-                      child: colorCard("크레딧의 정석", "가입만 해도 1만원!", Icons.attach_money, Colors.lightGreenAccent, Colors.green, Colors.black),
-                    ),
-
-
-
-                  ],
-                ),
+                page3(),
 
 
 
@@ -164,17 +137,45 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Column page3() {
+    return Column(
+                children: [
+                  SizedBox(height: 50),
+                  setTitleText('닥터트립 활용법 필독!'),
+                  SizedBox(height: 20),
+                  Container(
+                    width: 300,
+                    height: 150,
+                    child: colorCard("경매의 기술", "최저가보다 싸게!", Icons.thumb_up_alt_outlined, Colors.deepPurpleAccent, Colors.deepPurple, Colors.white),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    width: 300,
+                    height: 150,
+                    child: colorCard("크레딧의 정석", "가입만 해도 1만원!", Icons.attach_money, Colors.lightGreenAccent, Colors.green, Colors.black),
+                  ),
+
+
+
+                ],
+              );
+  }
+
+  Text setTitleText(String text) {
+    return Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+  }
+
   Column page2() {
     return Column(
                 children: [
                   SizedBox(height: 50),
-                  Text(
-                      '숙박 조건을 선택해주세요!',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  setTitleText('숙박 조건을 선택해주세요!'),
                   SizedBox(height: 20),
                   cardHotel(),
                   SizedBox(height: 40),
@@ -270,13 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   Container(
                     margin: const EdgeInsets.only(top : 30.0),
-                    child: Text(
-                      "이것만 읽어보면 개이득!",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: setTitleText("이것만 읽어보면 개이득!"),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -288,13 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(top : 50.0),
-                    child: Text(
-                      "인기 여행지 추천호텔을 확인하세요!",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: setTitleText("인기 여행지 추천호텔을 확인하세요!"),
                   ),
                   Container(
                     margin: const EdgeInsets.only(top : 5.0),
