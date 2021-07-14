@@ -1,8 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_dr_trip/main.dart';
 import 'package:flutter_dr_trip/method.dart';
+
+final List<String> imgList = [
+  'https://cdn.pixabay.com/photo/2019/08/01/12/36/illustration-4377408_960_720.png',
+  'https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png',
+  'https://cdn.pixabay.com/photo/2012/03/01/00/21/bridge-19513_960_720.jpg'
+];
 
 Column page1() {
   return Column(
@@ -19,8 +24,11 @@ Column page1() {
         child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: CarouselSlider(
-              height: 200.0,
-              autoPlay: true,
+              options: CarouselOptions(
+                height: 200.0,
+                autoPlay: true,
+              ),
+
               items: imgList.map((url) {
                 return Builder(
                   builder: (BuildContext context) {
