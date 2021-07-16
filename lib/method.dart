@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 Card cardHotel() {
   return Card(
@@ -341,5 +343,27 @@ Container boxSearch() {
       color: Colors.lightBlue,
     ),
   );
+}
+
+
+class Music{
+  String singer;
+  String album;
+  String title;
+
+  Music({
+    this.singer,
+    this.album,
+    this.title
+  });
+
+  factory Music.fromJson(Map<String, dynamic> parsedJson) {
+    return Music(
+      singer: parsedJson['singer'],
+      album: parsedJson['album'],
+      title: parsedJson['title'],
+
+    );
+  }
 }
 

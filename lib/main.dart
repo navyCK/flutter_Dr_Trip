@@ -4,10 +4,15 @@ import 'package:flutter_dr_trip/page2.dart';
 import 'package:flutter_dr_trip/page3.dart';
 import 'package:flutter_dr_trip/page4.dart';
 import 'package:flutter_dr_trip/page5.dart';
+import 'package:flutter_dr_trip/method.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 
 void main() {
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
