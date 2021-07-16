@@ -98,7 +98,7 @@ Column page1() {
             "소노캄 고양",
           ),
           hotelList(
-            'https://www.p-city.com/mobilePub/static/images/hotelParadise/img_main_visual.jpg',
+            'https://img.hotelpkg.com/assets/uploads/files/customers/3927/0.jpg',
             "비발디파크 - 소노벨",
           ),
           hotelList(
