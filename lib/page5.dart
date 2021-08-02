@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dr_trip/main.dart';
 import 'package:flutter_dr_trip/method.dart';
+import 'package:flutter_dr_trip/music_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
 
-
-
-// 응답 결과를 List<Photo>로 변환하는 함수.
-List<Music> parseMusics(String responseBody) {
-  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-
-  return parsed.map<Music>((json) => Music.fromJson(json)).toList();
+Future<String> _loadMusicAsset() async {
+  return await rootBundle.loadString('Assets/music_json.json');
 }
 
-Future<List<Music>> fetchMusics(http.Client client) async {
-  final response =
-  await client.get('https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json');
-
-  return parseMusics(response.body);
+Future loadMusic() async {
+  String jsonString = await _loadMusicAsset();
+  final jsonResponse = json.decode(jsonString);
+  Music music = new Music.fromJson(jsonResponse);
+  print(music.title);
 }
 
 Column page5() {
