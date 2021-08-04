@@ -14,7 +14,6 @@ class Music{
       singer: parsedJson['singer'],
       album: parsedJson['album'],
       title: parsedJson['title'],
-
     );
   }
 }

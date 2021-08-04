@@ -11,7 +11,6 @@ import 'dart:convert';
 
 void main() {
   runApp(MyApp());
-  loadMusic();
 }
 
 
